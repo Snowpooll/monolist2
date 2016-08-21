@@ -1,4 +1,10 @@
+<% content_for(:head) do %>
+  <title><%= @item.title %>に関するページ</title>
+  <meta name="description" content="<%= @item.title %>に関するページ">
+<% end %>
+
 <%= render 'profile' , user: @user %>
 
 
 <%= render 'items/list' , items: @items %>
+
