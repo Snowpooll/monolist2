@@ -44,12 +44,12 @@ class User < ActiveRecord::Base
   end
 
 #itemをhaveしている場合true、haveしていない場合falseを返す。
-  def unhave(item)
+  def have?(item)
    haves.include?(item)
   end
 
 #itemのhaveを解除する。
-  def have?(item)
+  def unhave(item)
     have = haves.find_by(item_id: item.item_id)
     have.destroy if have  
   end
@@ -62,13 +62,13 @@ class User < ActiveRecord::Base
 
 
 #itemをwantしている場合true、wantしていない場合falseを返す。
-  def unwant(item)
+  def want?(item)
     wants.include?(item)
   end
 
 
 #itemのwantを解除する。
-  def want?(item)
+  def unwant(item)
     want = wants.find_by(item_id: item.item_id)
     want.destroy if want
   end
