@@ -38,21 +38,38 @@ class User < ActiveRecord::Base
   end
 
   ## TODO 実装
+#itemをhaveする。
   def have(item)
+    haves.find_or_create_by(item_id: item.item_id)
   end
 
+#itemをhaveしている場合true、haveしていない場合falseを返す。
   def unhave(item)
+   haves.include?(item)
   end
 
+#itemのhaveを解除する。
   def have?(item)
+    have = haves.find_by(item_id: item.item_id)
+    have.destroy if have  
   end
 
+
+  #	itemをwantする。
   def want(item)
+    wants.find_or_create_by(item_id: item.item_id)
   end
 
+
+#itemをwantしている場合true、wantしていない場合falseを返す。
   def unwant(item)
+    wants.include?(item)
   end
 
+
+#itemのwantを解除する。
   def want?(item)
+    want = wants.find_by(item_id: item.item_id)
+    want.destroy if want
   end
 end
