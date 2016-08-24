@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
   ## TODO 実装
 #itemをhaveする。
   def have(item)
-    haves.find_or_create_by(item_id: item.id)
+   haves.find_or_create_by(item_id: item.id)
   end
 
 #itemをhaveしている場合true、haveしていない場合falseを返す。
