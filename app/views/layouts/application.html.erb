@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <% if content_for?(:head) %>
+    <title><%= yield(:title).present? ? "#{yield(:title)} - MonoList" : 'MonoList' %></title>
     <%= yield :head %>
-  <% else %>
-    <title>Monolist</title>
-  <% end %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
   <%= favicon_link_tag 'favicon.ico' %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 </head>
@@ -20,3 +18,4 @@
 
 </body>
 </html>
+  
